@@ -64,7 +64,7 @@ const static int reqIntLen=8;
 const static int reqBulkLen=8;
 const static int timeout=5000; /* timeout in ms */
  
-static int debug=0;
+static int debug=1;
 
 static int device_type(usb_dev_handle *lvr_winusb){
 	struct usb_device *dev;
@@ -338,6 +338,7 @@ usb_dev_handle* pcsensor_open(){
 	int i, ret;
 
 	if (!(lvr_winusb = setup_libusb_access())) {
+                printf("Unable to get lvr_winusb device.");
 		return NULL;
 	} 
 
